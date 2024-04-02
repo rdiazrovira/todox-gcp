@@ -5,23 +5,7 @@ package public
 
 import (
 	"embed"
-	
-	"github.com/leapkit/core/envor"
-	"github.com/leapkit/core/mdfs"
 )
 
-var (
-	//go:embed `application.css`
-	public embed.FS
-
-	// publicFolder is a mdfs instance that contains all the
-	// files in the public folder.
-	Files = mdfs.New(
-		public,
-		"public",
-		
-		// The environment is used to determine if it will used
-		// the embedded folder or the actual folder.
-		envor.Get("GO_ENV", "development"),
-	)
-)
+//go:embed *
+var Files embed.FS

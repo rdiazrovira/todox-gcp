@@ -5,28 +5,14 @@ import (
 	"todox/internal/todos"
 	"todox/public"
 
-	"github.com/leapkit/core/mdfs"
-	"github.com/leapkit/core/server"
-
 	"github.com/leapkit/core/envor"
 	"github.com/leapkit/core/render"
+	"github.com/leapkit/core/server"
 	"github.com/leapkit/core/session"
 )
 
-var (
-	//go:embed **/*.html *.html
-	tmpls embed.FS
-
-	// templates FS used by the application to render
-	// the html templates. It uses mdfs to fallback to
-	// the directory where the templates are located in
-	// development mode.
-	templates = mdfs.New(
-		tmpls,
-		"internal",
-		envor.Get("GO_ENV", "development"),
-	)
-)
+//go:embed **/*.html *.html
+var tmpls embed.FS
 
 // AddRoutes mounts the routes for the application,
 // it assumes that the base services have been injected
@@ -42,7 +28,7 @@ func AddRoutes(r server.Router) error {
 	// Render middleware to build the html templates
 	// and serve them to the client.
 	r.Use(render.Middleware(
-		templates,
+		tmpls,
 		render.WithDefaultLayout("layout.html")),
 	)
 
