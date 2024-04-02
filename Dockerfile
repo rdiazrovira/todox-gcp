@@ -16,4 +16,4 @@ WORKDIR /bin/
 # Copying binaries
 COPY --from=builder /src/todox/bin/app .
 
-CMD /bin/db migrate && /bin/app
+CMD /bin/app
