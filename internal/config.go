@@ -18,9 +18,9 @@ var (
 	// the tailwind css files, which is the input and
 	// what will be the output.
 	TailoOptions = []tailo.Option{
-		tailo.UseInputPath("internal/assets/application.css"),
-		tailo.UseOutputPath("public/application.css"),
-		tailo.UseConfigPath("tailwind.config.js"),
+		tailo.UseInputPath("./internal/assets/application.css"),
+		tailo.UseOutputPath("./public/application.css"),
+		tailo.UseConfigPath("./tailwind.config.js"),
 	}
 
 	// GlovesOptions are the options that will be used by the gloves
