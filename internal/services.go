@@ -1,6 +1,7 @@
 package internal
 
 import (
+	"fmt"
 	"todox/internal/todos"
 
 	"github.com/leapkit/core/server"
@@ -13,6 +14,7 @@ import (
 func AddServices(r server.Router) error {
 	conn, err := DB()
 	if err != nil {
+		fmt.Println("Failed to start database connection: ", err.Error())
 		return err
 	}
 

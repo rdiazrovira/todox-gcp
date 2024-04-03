@@ -20,6 +20,7 @@ var tmpls embed.FS
 // in the creation of the server instance.
 func AddRoutes(r server.Router) error {
 	r.HandleFunc("GET /hc", health.Check)
+
 	// Session middleware to be used by the application
 	// to store session data.
 	r.Use(session.Middleware(
