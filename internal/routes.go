@@ -2,6 +2,7 @@ package internal
 
 import (
 	"embed"
+	"todox/internal/health"
 	"todox/internal/todos"
 	"todox/public"
 
@@ -18,6 +19,7 @@ var tmpls embed.FS
 // it assumes that the base services have been injected
 // in the creation of the server instance.
 func AddRoutes(r server.Router) error {
+	r.HandleFunc("GET /hc", health.Check)
 	// Session middleware to be used by the application
 	// to store session data.
 	r.Use(session.Middleware(
