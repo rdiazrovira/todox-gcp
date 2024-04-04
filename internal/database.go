@@ -1,8 +1,6 @@
 package internal
 
 import (
-	"fmt"
-
 	"github.com/leapkit/core/db"
 	"github.com/leapkit/core/envor"
 	_ "github.com/lib/pq"
@@ -20,7 +18,3 @@ var (
 	// connection string.
 	DB = db.ConnectionFn(DatabaseURL, db.WithDriver(DatabaseDriver))
 )
-
-func init() {
-	fmt.Println("This is the database URL I am reading: ", DatabaseURL)
-}
