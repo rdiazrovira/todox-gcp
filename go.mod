@@ -5,7 +5,6 @@ go 1.22.0
 require (
 	github.com/gofrs/uuid/v5 v5.0.0
 	github.com/jmoiron/sqlx v1.3.5
-	github.com/joho/godotenv v1.5.1
 	github.com/leapkit/core v1.2.13
 	github.com/lib/pq v1.10.9
 	github.com/mattn/go-sqlite3 v1.14.19

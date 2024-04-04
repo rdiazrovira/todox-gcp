@@ -6,7 +6,7 @@ ADD go.mod .
 RUN go mod download
 
 ADD . .
-RUN go run ./cmd/build
+RUN go build --ldflags '-linkmode=external -extldflags="-static"' -tags osusergo,netgo -buildvcs=false -o bin/app cmd/app/main.go
 
 FROM alpine
 RUN apk add --no-cache ca-certificates
