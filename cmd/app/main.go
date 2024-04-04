@@ -7,11 +7,18 @@ import (
 	"os"
 	"todox/internal"
 
+	"github.com/joho/godotenv"
 	"github.com/leapkit/core/envor"
 	"github.com/leapkit/core/server"
 )
 
 func main() {
+	err := godotenv.Load(".env")
+	if err != nil {
+		fmt.Println("failed while loading environment variables file: ", err.Error())
+		os.Exit(1)
+	}
+
 	server := server.New(
 		server.WithHost(envor.Get("HOST", "0.0.0.0")),
 		server.WithPort(envor.Get("PORT", "3000")),
