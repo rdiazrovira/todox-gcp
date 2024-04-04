@@ -12,12 +12,14 @@ import (
 )
 
 func main() {
+	slog.Info("> Starting server...")
 	server := server.New(
 		server.WithHost(envor.Get("HOST", "0.0.0.0")),
 		server.WithPort(envor.Get("PORT", "3000")),
 	)
 
 	// Application services
+	slog.Info("> Adding Services...")
 	if err := internal.AddServices(server); err != nil {
 		fmt.Println("failed while adding services: ", err.Error())
 		slog.Error(err.Error())
@@ -25,6 +27,7 @@ func main() {
 	}
 
 	// Application routes
+	slog.Info("> Setting up routes...")
 	if err := internal.AddRoutes(server); err != nil {
 		fmt.Println(err)
 		os.Exit(1)
