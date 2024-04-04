@@ -19,6 +19,7 @@ func main() {
 
 	// Application services
 	if err := internal.AddServices(server); err != nil {
+		fmt.Println("failed while adding services: ", err.Error())
 		slog.Error(err.Error())
 		os.Exit(1)
 	}

@@ -14,9 +14,9 @@ func main() {
 	cmd := exec.Command("go", "build")
 	cmd.Args = append(
 		cmd.Args,
-
+		`-v`,
 		`--ldflags`, `-linkmode=external -extldflags="-static"`,
-		`-tags`, `osusergo,netgo,sqlite_omit_load_extension`,
+		`-tags`, `osusergo,netgo`,
 		`-buildvcs=false`,
 		"-o", "bin/app",
 		"cmd/app/main.go",
