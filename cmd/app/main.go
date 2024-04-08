@@ -12,10 +12,13 @@ import (
 )
 
 func main() {
+	host := envor.Get("HOST", "0.0.0.0")
+	port := envor.Get("PORT", "3000")
+
 	slog.Info("> Starting server...")
 	server := server.New(
-		server.WithHost(envor.Get("HOST", "0.0.0.0")),
-		server.WithPort(envor.Get("PORT", "3000")),
+		server.WithHost(host),
+		server.WithPort(port),
 	)
 
 	// Application services
