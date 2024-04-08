@@ -13,7 +13,7 @@ import (
 
 func main() {
 	host := envor.Get("HOST", "0.0.0.0")
-	port := envor.Get("PORT", "3000")
+	port := envor.Get("HOST_PORT", "3000")
 
 	slog.Info("> Starting server...")
 	server := server.New(
