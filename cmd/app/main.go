@@ -15,7 +15,7 @@ func main() {
 	host := envor.Get("HOST", "0.0.0.0")
 	port := envor.Get("PORT", "3000")
 
-	slog.Info("Checking...")
+	slog.Info("Checking 2...")
 	slog.Info("> Starting server...")
 	server := server.New(
 		server.WithHost(host),
